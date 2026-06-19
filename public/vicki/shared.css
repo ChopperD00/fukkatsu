@@ -1,0 +1,206 @@
+:root {
+  --bg: #0a0a0a;
+  --ink: #fafaf7;
+  --ink-dim: rgba(250, 250, 247, 0.7);
+  --ink-faint: rgba(250, 250, 247, 0.45);
+  --accent: #d4a574;
+  --slantd-red: #e84a3d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.media-still {
+  animation: kenburns 18s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.12) translate(-2%, -1.5%); }
+}
+
+.brand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: calc(env(safe-area-inset-top, 0px) + 1.25rem) 1.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent);
+  pointer-events: none;
+}
+
+.mark {
+  font-family: "Times New Roman", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.mark::after { content: "'"; }
+
+.issue {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 1.5rem calc(env(safe-area-inset-bottom, 0px) + 1.5rem);
+  z-index: 10;
+  background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.0));
+  pointer-events: none;
+}
+
+.caption > * { pointer-events: auto; }
+
+.scene-title {
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.essay {
+  font-size: 0.875rem;
+  color: var(--ink-dim);
+  margin-bottom: 0.125rem;
+}
+
+.essay em {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.byline {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.back {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.75rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  background: rgba(0,0,0,0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.04em;
+}
+
+.back:hover { background: rgba(255,255,255,0.08); }
+
+.rebuild-tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.unmute {
+  position: absolute;
+  bottom: 35vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+  background: rgba(0,0,0,0.7);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--ink);
+  padding: 0.625rem 1.125rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.unmute svg { width: 1rem; height: 1rem; fill: currentColor; }
+
+.unmute.fade {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.fukkatsu-mark {
+  position: absolute;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 0.5rem);
+  right: 0.875rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  z-index: 12;
+  text-decoration: none;
+}
+
+.fukkatsu-mark .kanji {
+  font-size: 0.7rem;
+  margin-right: 0.25rem;
+  color: var(--accent);
+}
+
+@media (min-width: 768px) {
+  .scene-title { font-size: 3rem; }
+  .caption { padding: 4rem 3rem 2rem; }
+  .brand { padding-left: 3rem; padding-right: 3rem; }
+}
