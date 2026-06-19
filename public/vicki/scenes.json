@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "platform": "fukkatsu",
+  "client": "slantd",
+  "essay": {
+    "id": "vicki",
+    "title": "Hometown at Dusk",
+    "author": "Vicki Wang",
+    "publication": "Slant'd Magazine",
+    "issue": "06 — Homecoming",
+    "url": "https://slantd.secretmenu.sh/vicki"
+  },
+  "scenes": [
+    {
+      "id": "train-passby",
+      "title": "Train Passby",
+      "url": "https://slantd.secretmenu.sh/vicki/train-passby",
+      "media": {
+        "type": "video",
+        "src": "https://slantd.secretmenu.sh/vicki/media/vertical-train.mp4",
+        "orientation": "portrait"
+      },
+      "original_aero_url": "https://adobeaero.app.link/CKmapXnD5Kb"
+    },
+    {
+      "id": "cloud-sky",
+      "title": "Cloud Sky",
+      "url": "https://slantd.secretmenu.sh/vicki/cloud-sky",
+      "media": {
+        "type": "video",
+        "src": "https://slantd.secretmenu.sh/vicki/media/clouds.mp4"
+      },
+      "original_aero_url": "https://adobeaero.app.link/4j7MBQcG5Kb"
+    },
+    {
+      "id": "orange-train",
+      "title": "Orange Train",
+      "url": "https://slantd.secretmenu.sh/vicki/orange-train",
+      "media": {
+        "type": "image",
+        "src": "https://slantd.secretmenu.sh/vicki/media/orange-train.png"
+      },
+      "original_aero_url": "https://adobeaero.app.link/18KSTQz43Kb"
+    },
+    {
+      "id": "signs",
+      "title": "Signs",
+      "url": "https://slantd.secretmenu.sh/vicki/signs",
+      "media": {
+        "type": "image",
+        "src": "https://slantd.secretmenu.sh/vicki/media/signs.png"
+      },
+      "original_aero_url": "https://adobeaero.app.link/xNplznkG5Kb"
+    },
+    {
+      "id": "grandma",
+      "title": "Grandma",
+      "url": "https://slantd.secretmenu.sh/vicki/grandma",
+      "media": {
+        "type": "image",
+        "src": "https://slantd.secretmenu.sh/vicki/media/grandma.png"
+      },
+      "original_aero_url": "https://adobeaero.app.link/hlAtBhFVsLb"
+    }
+  ]
+}

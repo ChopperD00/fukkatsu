@@ -22,3 +22,4 @@ node_modules/
 
 # Source assets (kept on UNICRON, not in repo)
 # Vicki/source/
+.vercel
