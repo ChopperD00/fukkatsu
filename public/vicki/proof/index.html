@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aero Rescue Proof · Slant'd × Fukkatsu</title>
+<meta name="description" content="Side-by-side proof: dead Adobe Aero QRs replaced with permanent Fukkatsu QRs for Slant'd Magazine Issue 06.">
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --paper: #FAF7F2;
+    --ink: #1A1A1A;
+    --ink-dim: #6B6862;
+    --ink-faint: #B5B0A6;
+    --rule: #2B2520;
+    --slantd-red: #E84A3D;
+    --accent: #C68F4A;
+    --dead-bg: #F0EBE2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+  }
+  .sheet {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+  }
+  header.masthead {
+    border-top: 2px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.25rem 0 1rem;
+    margin-bottom: 2rem;
+  }
+  .masthead-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .platform {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .platform .kanji {
+    color: var(--accent);
+    margin-right: 0.4rem;
+    font-size: 1.3rem;
+  }
+  .platform .label {
+    font-family: -apple-system, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-left: 0.5rem;
+    vertical-align: 0.2em;
+  }
+  .meta {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-align: right;
+  }
+  .client-line {
+    margin-top: 0.75rem;
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ink-dim);
+  }
+  .client-line strong { font-style: normal; color: var(--ink); font-weight: 400; }
+
+  .summary {
+    background: #fff;
+    border: 1px solid var(--ink-faint);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .stat .num {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 2.25rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .lbl {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 0.4rem;
+  }
+  .stat.dead .num { color: var(--slantd-red); }
+  .stat.live .num { color: var(--accent); }
+
+  .table-head {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px 1fr;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--ink-faint);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .table-head .col-3 { text-align: center; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--ink-faint);
+    align-items: center;
+  }
+  .row:last-child { border-bottom: 2px solid var(--rule); }
+
+  .qr-cell {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--ink-faint);
+  }
+  .qr-cell img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+  .qr-cell.dead {
+    background: var(--dead-bg);
+    border-color: var(--slantd-red);
+  }
+  .qr-cell.dead img { opacity: 0.35; filter: grayscale(0.8); }
+  .qr-cell.dead::after {
+    content: "DEAD";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-8deg);
+    background: var(--slantd-red);
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+  }
+
+  .scene-name {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 1.5rem;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+  .scene-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-top: 0.4rem;
+  }
+  .old-url {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.7rem;
+    color: var(--slantd-red);
+    word-break: break-all;
+    margin-top: 0.6rem;
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+  }
+
+  .new-detail .status {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
+  }
+  .new-url {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem;
+    color: var(--ink);
+    word-break: break-all;
+    line-height: 1.45;
+  }
+  .new-url a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--ink-faint); }
+
+  .closing {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .closing .what {
+    font-family: "Times New Roman", Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-dim);
+    max-width: 60%;
+    line-height: 1.5;
+  }
+  .closing .what strong { font-style: normal; color: var(--ink); font-weight: 400; }
+  .signature {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-align: right;
+  }
+  .signature .kanji {
+    color: var(--accent);
+    margin-right: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 720px) {
+    .sheet { padding: 2rem 1.25rem; }
+    .summary { grid-template-columns: 1fr; gap: 1rem; padding: 1rem; }
+    .stat .num { font-size: 1.75rem; }
+    .table-head { display: none; }
+    .row {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "scene scene" "dead live" "olddetail newdetail";
+      gap: 0.75rem 1rem;
+    }
+    .row .col-1 { grid-area: dead; }
+    .row .col-2 { grid-area: scene; }
+    .row .col-3 { grid-area: live; }
+    .row .col-4 { grid-area: newdetail; }
+    .scene-sub { margin-top: 0.2rem; }
+    .old-url { display: none; }
+    .qr-cell { width: 110px; height: 110px; }
+  }
+
+  @media print {
+    @page { margin: 0.6in; }
+    .sheet { padding: 0; max-width: none; }
+    .row { page-break-inside: avoid; padding: 1rem 0; }
+    .summary { background: transparent; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="masthead-row">
+      <div class="platform"><span class="kanji">復活</span>FUKKATSU<span class="label">Aero Rescue</span></div>
+      <div class="meta">Recovery confirmed · 2026-06-19</div>
+    </div>
+    <p class="client-line"><strong>Slant&rsquo;d Magazine</strong> · Issue 06: Homecoming · <em>Hometown at Dusk</em> by Vicki Wang</p>
+  </header>
+
+  <section class="summary">
+    <div class="stat dead">
+      <div class="num">5</div>
+      <div class="lbl">Adobe Aero QRs · Dead since Dec 2025</div>
+    </div>
+    <div class="stat live">
+      <div class="num">5</div>
+      <div class="lbl">Fukkatsu QRs · Permanent</div>
+    </div>
+    <div class="stat">
+      <div class="num">∞</div>
+      <div class="lbl">Years until vendor sunset (UNISEC-owned)</div>
+    </div>
+  </section>
+
+  <div class="table-head">
+    <div>Before</div>
+    <div>Scene</div>
+    <div class="col-3">After</div>
+    <div>Live URL</div>
+  </div>
+
+  <!-- ROW: Train Passby -->
+  <article class="row">
+    <div class="col-1">
+      <div class="qr-cell dead"><img src="qr/old-train-passby.png" alt="Old dead Aero QR"></div>
+    </div>
+    <div class="col-2">
+      <div class="scene-name">Train Passby</div>
+      <div class="scene-sub">Video · Vertical · Autoplay</div>
+      <div class="old-url">adobeaero.app.link/CKmapXnD5Kb</div>
+    </div>
+    <div class="col-3" style="justify-self:center">
+      <div class="qr-cell"><img src="qr/new-train-passby.png" alt="New Fukkatsu QR"></div>
+    </div>
+    <div class="col-4 new-detail">
+      <div class="status">Live</div>
+      <div class="new-url"><a href="https://slantd.secretmenu.sh/vicki/train-passby">slantd.secretmenu.sh/<wbr>vicki/train-passby</a></div>
+    </div>
+  </article>
+
+  <!-- ROW: Cloud Sky -->
+  <article class="row">
+    <div class="col-1">
+      <div class="qr-cell dead"><img src="qr/old-cloud-sky.png" alt="Old dead Aero QR"></div>
+    </div>
+    <div class="col-2">
+      <div class="scene-name">Cloud Sky</div>
+      <div class="scene-sub">Video · Autoplay</div>
+      <div class="old-url">adobeaero.app.link/4j7MBQcG5Kb</div>
+    </div>
+    <div class="col-3" style="justify-self:center">
+      <div class="qr-cell"><img src="qr/new-cloud-sky.png" alt="New Fukkatsu QR"></div>
+    </div>
+    <div class="col-4 new-detail">
+      <div class="status">Live</div>
+      <div class="new-url"><a href="https://slantd.secretmenu.sh/vicki/cloud-sky">slantd.secretmenu.sh/<wbr>vicki/cloud-sky</a></div>
+    </div>
+  </article>
+
+  <!-- ROW: Orange Train -->
+  <article class="row">
+    <div class="col-1">
+      <div class="qr-cell dead"><img src="qr/old-orange-train.png" alt="Old dead Aero QR"></div>
+    </div>
+    <div class="col-2">
+      <div class="scene-name">Orange Train</div>
+      <div class="scene-sub">Image · Ken-Burns</div>
+      <div class="old-url">adobeaero.app.link/18KSTQz43Kb</div>
+    </div>
+    <div class="col-3" style="justify-self:center">
+      <div class="qr-cell"><img src="qr/new-orange-train.png" alt="New Fukkatsu QR"></div>
+    </div>
+    <div class="col-4 new-detail">
+      <div class="status">Live</div>
+      <div class="new-url"><a href="https://slantd.secretmenu.sh/vicki/orange-train">slantd.secretmenu.sh/<wbr>vicki/orange-train</a></div>
+    </div>
+  </article>
+
+  <!-- ROW: Signs -->
+  <article class="row">
+    <div class="col-1">
+      <div class="qr-cell dead"><img src="qr/old-signs.png" alt="Old dead Aero QR"></div>
+    </div>
+    <div class="col-2">
+      <div class="scene-name">Signs</div>
+      <div class="scene-sub">Image · Ken-Burns</div>
+      <div class="old-url">adobeaero.app.link/xNplznkG5Kb</div>
+    </div>
+    <div class="col-3" style="justify-self:center">
+      <div class="qr-cell"><img src="qr/new-signs.png" alt="New Fukkatsu QR"></div>
+    </div>
+    <div class="col-4 new-detail">
+      <div class="status">Live</div>
+      <div class="new-url"><a href="https://slantd.secretmenu.sh/vicki/signs">slantd.secretmenu.sh/<wbr>vicki/signs</a></div>
+    </div>
+  </article>
+
+  <!-- ROW: Grandma -->
+  <article class="row">
+    <div class="col-1">
+      <div class="qr-cell dead"><img src="qr/old-grandma.png" alt="Old dead Aero QR"></div>
+    </div>
+    <div class="col-2">
+      <div class="scene-name">Grandma</div>
+      <div class="scene-sub">Image · Ken-Burns</div>
+      <div class="old-url">adobeaero.app.link/hlAtBhFVsLb</div>
+    </div>
+    <div class="col-3" style="justify-self:center">
+      <div class="qr-cell"><img src="qr/new-grandma.png" alt="New Fukkatsu QR"></div>
+    </div>
+    <div class="col-4 new-detail">
+      <div class="status">Live</div>
+      <div class="new-url"><a href="https://slantd.secretmenu.sh/vicki/grandma">slantd.secretmenu.sh/<wbr>vicki/grandma</a></div>
+    </div>
+  </article>
+
+  <footer class="closing">
+    <div class="what">
+      <strong>The QR is permanent. The renderer is renegotiated per device.</strong>
+      Native iOS, AR Quick Look, Snap Lens — same printed code, every future.
+    </div>
+    <div class="signature">
+      <span class="kanji">復活</span>FUKKATSU · A UNISEC platform
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
